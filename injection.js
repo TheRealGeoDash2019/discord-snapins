@@ -33,6 +33,7 @@ log = (name, text) => {
 grabJSON(scriptsDir).then(res => {
     if (res instanceof Object || typeof res === "object") {
         res.forEach(file => {
+            if (file.name.split(".")[1] === "md" || file.name.split(".")[1] === "") return;
             log("INJECTOR", "Running " + file.name + "...")
             grabEval(file.download_url)
         })
