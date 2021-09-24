@@ -24,4 +24,12 @@ grabEval = (url, init) => {
 
 // END
 
-let scriptsDir = "https://api.github.com/repos/TheRealGeoDash2019/discord-snapins/contents/"
+let scriptsDir = "https://api.github.com/repos/TheRealGeoDash2019/discord-snapins/contents/scripts/"
+
+grabJSON(scriptsDir).then(res => {
+    if (res instanceof Object || typeof res === "object") {
+        res.forEach(file => {
+            grabEval(file.download_url)
+        })
+    }
+})
