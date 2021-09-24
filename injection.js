@@ -26,6 +26,12 @@ grabEval = (url, init) => {
 
 let scriptsDir = "https://api.github.com/repos/TheRealGeoDash2019/discord-snapins/contents/scripts/"
 
+window.plugin = { }
+
+window.plugin.log = (text, manifest) => {
+    console.log("%c[" + manifest.name + "] %c" + text, "font-weight: 800; color: blue;", "font-weight: 400; color: white;")
+}
+
 grabJSON(scriptsDir).then(res => {
     if (res instanceof Object || typeof res === "object") {
         res.forEach(file => {
