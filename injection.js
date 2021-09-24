@@ -62,7 +62,7 @@ const find = (filter, options = {}) => {
     console.warn('Cannot find module');
     return null;
 };
-const findByUniqueProperties = (propNames, options) => find(module => propNames.every(prop => module[prop] !== undefined), options);
+window.findByUniqueProperties = (propNames, options) => find(module => propNames.every(prop => module[prop] !== undefined), options);
 
 // END
 
