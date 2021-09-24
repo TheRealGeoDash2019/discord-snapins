@@ -4,5 +4,5 @@ let manifest = {
   version: 1
 }
 (async () => {
-  plugin.log("If you are seeing this, then this script has worked", manifest)
+  window.plugin.log("If you are seeing this, then this script has worked", manifest)
 })();
