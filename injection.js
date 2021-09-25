@@ -136,6 +136,4 @@ window.grabJSON(scriptsDir).then(res => {
         })
     }
 })
-
-document.querySelector(".geomod").remove()
 })();
