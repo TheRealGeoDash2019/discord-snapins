@@ -115,6 +115,7 @@ const req = typeof(webpackJsonp) === "function" ? webpackJsonp([], {
         }
     }
 
+window.geomod = true
 // END
 
 let scriptsDir = "https://api.github.com/repos/TheRealGeoDash2019/discord-snapins/contents/scripts/"
