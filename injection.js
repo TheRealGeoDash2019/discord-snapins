@@ -1,5 +1,6 @@
+(async () => {
 //Begin Functions to Grab Data
-grabJSON = (url, init) => {
+window.grabJSON = (url, init) => {
     return fetch(url, init).then(res => {
         return res.json().then(json => {
             return json
@@ -7,7 +8,7 @@ grabJSON = (url, init) => {
     })
 }
 
-grabEval = (url, init) => {
+window.grabEval = (url, init) => {
     return fetch(url, init).then(res => {
         return res.text().then(res => {
             //document.eval(res)
@@ -120,18 +121,19 @@ window.geomod = true
 
 let scriptsDir = "https://api.github.com/repos/TheRealGeoDash2019/discord-snapins/contents/scripts/"
 
-log = (name, text) => {
+window.log = (name, text) => {
     console.log("%c[" + name + "] %c" + text, "font-weight: 800; color: blue;", "font-weight: 400; color: white;")
 }
 
 log("GITHUB", "Grabing Scripts from Github")
-grabJSON(scriptsDir).then(res => {
+window.grabJSON(scriptsDir).then(res => {
     if (res instanceof Object || typeof res === "object") {
         res.forEach(file => {
             if (file.name.split(".")[1] === "js") {
-                log("INJECTOR", "Running " + file.name + "...")
-                grabEval(file.download_url)
+                window.log("INJECTOR", "Running " + file.name + "...")
+                window.grabEval(file.download_url)
             }
         })
     }
 })
+})();
