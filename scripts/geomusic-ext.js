@@ -31,3 +31,6 @@ class GeoMusicAPI {
     return await res
   }
 }
+
+window.GeoMusicAPI = GeoMusicAPI
+window.GeoMusicAPIError = GeoMusicAPIError
