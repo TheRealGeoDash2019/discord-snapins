@@ -1,4 +1,5 @@
 (async () => {
+  console.log(document.readyState)
   const req = typeof(webpackJsonp) === "function" ? webpackJsonp([], {
         '__extra_id__': (module, exports, req) => exports.default = req
     }, ['__extra_id__']).default : webpackJsonp.push([[], {
