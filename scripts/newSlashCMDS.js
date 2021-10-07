@@ -58,6 +58,7 @@
     
     window.createSlashCommand = (name, desc, options, execute) => {
       let slashCommands = findByUniqueProperties(["BUILT_IN_COMMANDS", "BUILT_IN_SECTIONS"]).BUILT_IN_COMMANDS
+      console.log(slashCommands)
       if (window.getSlashCommandSections("891090626119102475")) {
           let slashCommandTemplate = {
               applicationId: "891090626119102475", // DO NOT TOUCH
