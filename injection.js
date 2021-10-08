@@ -125,15 +125,17 @@ window.log = (name, text) => {
     console.log("%c[" + name + "] %c" + text, "font-weight: 800; color: blue;", "font-weight: 400; color: white;")
 }
 
-log("GITHUB", "Grabing Scripts from Github")
-window.grabJSON(scriptsDir).then(res => {
-    if (res instanceof Object || typeof res === "object") {
-        res.forEach(file => {
-            if (file.name.split(".")[1] === "js") {
-                window.log("INJECTOR", "Running " + file.name + "...")
-                window.grabEval(file.download_url)
-            }
-        })
-    }
-})
+window.addEventListener('load', (event) => {
+    log("GITHUB", "Grabing Scripts from Github")
+    window.grabJSON(scriptsDir).then(res => {
+        if (res instanceof Object || typeof res === "object") {
+            res.forEach(file => {
+                if (file.name.split(".")[1] === "js") {
+                    window.log("INJECTOR", "Running " + file.name + "...")
+                    window.grabEval(file.download_url)
+                }
+            })
+        }
+    })
+});
 })();
