@@ -142,7 +142,7 @@ const req = typeof(webpackJsonp) === "function" ? webpackJsonp([], {
 window.geomod = true
 // END
 
-let scriptsDir = "https://api.github.com/repos/TheRealGeoDash2019/discord-snapins/contents/scripts/"
+window.scriptsDir = "https://api.github.com/repos/TheRealGeoDash2019/discord-snapins/contents/scripts/"
 
 window.log = (name, text) => {
     console.log("%c[" + name + "] %c" + text, "font-weight: 800; color: blue;", "font-weight: 400; color: white;")
@@ -157,7 +157,7 @@ window.injectIntoSite = (content, scriptname) => {
 
 window.addEventListener('load', (event) => {
     log("GITHUB", "Grabing Scripts from Github")
-    window.grabJSON(scriptsDir).then(res => {
+    window.grabJSON("https://api.github.com/repos/TheRealGeoDash2019/discord-snapins/contents/scripts/").then(res => {
         if (res instanceof Object || typeof res === "object") {
             res.forEach(file => {
                 if (file.name.split(".")[1] === "js") {
