@@ -80,7 +80,7 @@ const req = typeof(webpackJsonp) === "function" ? webpackJsonp([], {
         }
     }
 
-    window.setActivity = (appid, name, details, state, assets, buttons) => {
+    window.setActivity = (appid, name, details, state, assets, buttons, timestamps) => {
         findByUniqueProperties(["INVITE_BROWSER"]).SET_ACTIVITY.handler({
           socket: {
             id: 100,
@@ -96,6 +96,7 @@ const req = typeof(webpackJsonp) === "function" ? webpackJsonp([], {
               details: details? details : "",
               state: state? state : "",
               assets: assets? assets : {},
+              timestamps: timestamps? timestamps : undefined,
               buttons: buttons? buttons : []
             },
           },
