@@ -155,7 +155,7 @@ window.injectIntoSite = (content, scriptname) => {
     return document.head.appendChild(scripts)
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('load', (event) => {
     log("GITHUB", "Grabing Scripts from Github")
     window.grabJSON("https://api.github.com/repos/TheRealGeoDash2019/discord-snapins/contents/scripts/").then(res => {
         if (res instanceof Array || typeof res === "array") {
