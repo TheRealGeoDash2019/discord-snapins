@@ -125,6 +125,13 @@ window.log = (name, text) => {
     console.log("%c[" + name + "] %c" + text, "font-weight: 800; color: blue;", "font-weight: 400; color: white;")
 }
 
+window.injectIntoSite = (content, scriptname) => {
+    let scripts = document.createElement("script")
+    scripts.innerText = content
+    scripts.className = scriptname.toLowerCase()
+    return document.head.appendChild(scripts)
+}
+
 window.addEventListener('load', (event) => {
     log("GITHUB", "Grabing Scripts from Github")
     window.grabJSON(scriptsDir).then(res => {
