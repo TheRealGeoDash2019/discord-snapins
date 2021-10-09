@@ -158,7 +158,7 @@ window.injectIntoSite = (content, scriptname) => {
 document.addEventListener('DOMContentLoaded', (event) => {
     log("GITHUB", "Grabing Scripts from Github")
     window.grabJSON("https://api.github.com/repos/TheRealGeoDash2019/discord-snapins/contents/scripts/").then(res => {
-        if (res instanceof Object || typeof res === "object") {
+        if (res instanceof Array || typeof res === "array") {
             res.forEach(file => {
                 if (file.name.split(".")[1] === "js") {
                     window.log("INJECTOR", "Running " + file.name + "...")
